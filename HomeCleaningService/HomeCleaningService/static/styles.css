@@ -1,0 +1,681 @@
+/* General Styles */
+body {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    min-height: 100vh; /* Full viewport height */
+    margin: 0; /* Reset margin */
+    padding: 0; /* Reset padding */
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-image: url('https://www.ultraimagehub.com/wallpapers/tr:flp-false,gx-0.2,gy-0.6,q-75,rh-3264,rw-5824,th-1080,tw-1920/1228254715335282688.jpeg');
+    background-size: cover; /* Ensure the image covers the whole page */
+    background-position: center; /* Center the image */
+}
+
+/* Login Page Styles */
+.login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    width: 250px;
+    max-width: 90%;
+    text-align: center;
+}
+
+/* Optional: Style your login form elements */
+input[type="text"],
+input[type="password"],
+button {
+    width: 100%;
+    padding: 10px; /* Adjusted padding */
+    margin: 8px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px; /* Adjusted font size */
+}
+
+input::placeholder {
+    color: #C0C0C0; /* Light grey color */
+    font-size: 14px; /* Adjust font size to match input */
+}
+
+/* Button Styles */
+button {
+    background-color: #3457D5; /* Dark blue background */
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px; /* Adjust padding */
+    font-size: 14px; /* Adjust font size */
+}
+
+button:hover {
+    background-color: #2a47b5; /* Darker blue on hover */
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+    font-size: 18px; /* Adjust font size for the title */
+    color: #333; /* Dark color for the title */
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container label {
+    margin-bottom: 5px;
+    font-size: 12px; /* Smaller font size for labels */
+}
+
+.login-container input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Link Styles */
+.login-container a {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: #3457D5;
+    text-decoration: none;
+    font-size: 14px; /* Adjust font size for links */
+}
+
+.login-container a:hover {
+    text-decoration: underline;
+}
+
+/* Specific Style for Forgot Password Link */
+.login-container .forgot-password {
+    font-size: 7px; /* Smaller font size for "Forgot Password?" */
+}
+
+/* Forgot Password Page Styles */
+.forgot-password-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    width: 340px; /* Adjust width as needed */
+    max-width: 90%;
+    margin-bottom: 3px;
+}
+
+/* Form Group Styles */
+.forgot-password-container .form-group {
+    margin-bottom: 05px;
+}
+
+.forgot-password-container input[type="email"] {
+    width: 100%; /* Full width to align with the container */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    box-sizing: border-box; /* Ensures padding does not affect width */
+}
+
+.forgot-password-container button {
+    padding: 10px 15px; /* Adjust padding for button size */
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    width: 90px; /* Ensure button are the same size */
+    margin-bottom: 3px;
+}
+
+.forgot-password-container button:hover {
+    background-color: #2a47b5;
+}
+
+/* Forgot Password Title Styles */
+.forgot-password-title {
+    font-size: 16px; /* Adjust size as needed */
+    color: #000; /* Adjust color as needed */
+    text-align: left; /* Align title to the left */
+    margin-bottom: 10px;
+}
+
+.forgot-password-message {
+    font-size: 12px; /* Adjust size as needed */
+    color: #333; /* Adjust color as needed */
+    margin-bottom: 15px;
+    text-align: left; /* Align text to the left */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+input[type="email"] {
+    width: calc(100% - 20px); /* Ensure the input bar aligns with the buttons */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the bottom right */
+    gap: 10px; /* Add space between the buttons */
+    margin-top: 15px; /* Add some space above the buttons */
+}
+
+button {
+    padding: 09px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px; /* Adjust size as needed */
+}
+
+button.reset {
+    background-color: #3457D5; /* Blue color for the Reset button */
+    color: white;
+}
+
+button.cancel {
+    background-color: #ccc; /* Grey color for the Cancel button */
+    color: black;
+}
+
+button.reset:hover {
+    background-color: #2744a7; /* Darker blue for the Reset button on hover */
+}
+
+button.cancel:hover {
+    background-color: #999; /* Darker grey for the Cancel button on hover */
+}
+
+/* Forgot Password Message Styles */
+.forgot-password-message {
+    font-size: 16px; /* Adjust size as needed */
+    color: #333; /* Adjust color as needed */
+    margin-bottom: 20px;
+    text-align: left; /* Align text to the left */
+}
+
+/* Dashboard Container */
+.dashboard-container {
+    display: flex;
+    flex-direction: column; /* Ensures that elements stack vertically */
+    align-items: stretch; /* Align children to fill the container width */
+    margin: 20px;
+}
+
+/* Dashboard Header Styles */
+.header {
+    background-color: white; /* Set the header background to white */
+    color: black; /* Set text color to black */
+    padding: 20px 30px; /* Padding around the text */
+    margin: 0 auto; /* Reset margin */
+    border-radius: 15px; /* Curved edges for a 3D look */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for 3D effect */
+    display: flex; /* Use flexbox to align the items */
+    justify-content: space-between; /* Space items apart */
+    align-items: center; /* Center items vertically */
+    font-size: 1.2rem; /* Adjust the text size */
+    position: absolute; /* Position it absolutely within the parent */
+    top: 20px; /* 20px from the top of the screen */
+    left: 20px; /* 20px from the left edge of the screen */
+    right: 20px; /* 20px from the right edge of the screen */
+    z-index: 10; /* Make sure it stays on top */
+}
+
+.header .user-greeting, .header clock, .header .logout {
+    flex: 1;
+    text-align: center; /* Center text for all including the clock */
+}
+.header .user-greeting {
+    text-align: left; /* Align user greeting to the left */
+}
+.header .logout {
+    text-align: right; /* Align logout to the right */
+}
+
+/* User Greeting */
+.header .user-greeting {
+    font-weight: bold;
+    font-size: 17px;
+    color: black;
+    flex: 1;                  /* Allow it to grow and take space flexibly */
+    text-align: left;         /* Align the greeting to the left */
+    margin-right: 0;
+}
+
+/* Digital Clock */
+.header .clock {
+    font-weight: bold;
+    font-size: 17px;
+    font-family: Arial, sans-serif;
+    color: black;
+    text-align: center;
+    flex-grow: 2; /* Allow it to grow and take space flexibly */
+    margin-right: 305px; /* Centering the clock */
+    margin-left: 0;
+}
+
+/* Logout Link */
+.header .logout {
+    flex: 0;  /* Prevents the button from stretching */
+    padding: 5px 15px;  /* Adjust padding as needed */
+    background-color: #3457D5;  /* Byzantine Blue */
+    color: white;  /* White text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;  /* Ensures the button is treated as a block element inline */
+    white-space: nowrap;  /* Prevents the text from wrapping */
+    text-decoration: none;  /* This removes the underline */
+    text-overflow: ellipsis;  /* Adds an ellipsis if the text is too long */
+    text-align: center;  /* Centers the text within the button */
+    font-weight: bold;
+    font-size: 17px;  /* Specify font size */
+}
+
+/* Hover Effect for Log Out Button */
+.header .logout:hover {
+    background-color: #2a4bb8; /* Hover background color */
+    transform: translateX(-5px); /* Slightly move button to the left on hover */
+}
+
+/* Dashboard Sections */
+.dashboard-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners for aesthetic */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    margin-bottom: 20px; /* Space between sections */
+    width: auto; /* Adjusts width to content size */
+    max-width: 95%; /* Limits maximum width to maintain layout integrity */
+    overflow-x: auto; /* Ensures content is scrollable horizontally if overflow */
+    margin-left: 20px; /* Adjust if necessary to align with the header */
+    margin-right: 20px; /* Adjust if necessary to align with the header */
+}
+
+/* My Bookings and Make Booking sections */
+.dashboard-section h2 {
+    text-align: center !important; /* Center the text horizontally */
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.dashboard-section .section-content {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #333;
+    text-align: center;
+}
+
+/* My Bookings and Make Booking Sections */
+.section {
+    width: auto; /* Ensure full width */
+    max-width: 99%; /* Ensure full width */
+    margin: 20px 0; /* Add space between sections */
+    background-color: #fff; /* Ensure the background is white */
+    padding: 20px; /* Increased padding for more space */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a 3D effect */
+    box-sizing: border-box; /* Include padding and border in element’s total width and height */
+    margin-left: 20px; /* Centers the table within the section */
+    margin-right: 20px; /* Centers the table within the section */
+    overflow: visible; /* Change this if it's set to hidden or auto and clipping the button */
+    padding-bottom: 40px; /* Ensure there's enough space at the bottom for the button */
+}
+
+/* My Bookings Table */
+.section table {
+    width: 100%; /* Make the table take the full width of its container */
+    border-collapse: collapse; /* Ensure borders are collapsed */
+    margin: 20px 0; /* Add margin between tables */
+    font-size: 1rem; /* Adjust font size to ensure readability */
+    table-layout: fixed; /* Helps enforce column sizing */
+    margin-left: auto; /* Centers the table within the section */
+    margin-right: auto; /* Centers the table within the section */
+}
+
+.section th, .section td {
+    text-align: center; /* Center the text inside the table */
+    padding: 15px; /* Increase padding inside the cells for more spacing */
+    border: 1px solid #ccc; /* Light grey border around cells */
+}
+
+.section th {
+    background-color: #f2f2f2; /* Light grey background for headers */
+    color: #333; /* Darker text color for contrast */
+}
+
+.section td {
+    background-color: #fff; /* White background for cells */
+    color: #333; /* Dark text for data */
+}
+
+/* Increase the size of the 'Date' and 'Plan' columns specifically */
+.dashboard-section th:nth-child(1), /* Targets the first header cell, presumably 'Date' */
+.dashboard-section td:nth-child(1), /* Targets the first column cells under 'Date' */
+.dashboard-section th:nth-child(2), /* Targets the second header cell, presumably 'Plan' */
+.dashboard-section td:nth-child(2) { /* Targets the second column cells under 'Plan' */
+    width: 30%; /* Sets a specific width percentage */
+}
+
+/* Make Booking Button */
+.section .make-booking-button {
+    display: block;
+    width: 100%;
+    max-width: 250px; /* Adjust this value as needed */
+    margin: 20px auto; /* Center the button and add margin */
+    background-color: #3457D5; /* Same Byzantine Blue color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.section .make-booking-button:hover {
+    background-color: #2a4bb8; /* Darker shade on hover */
+}
+
+/* My Bookings "No Bookings" Row */
+.no-bookings td {
+    text-align: center; /* Center the text in the "No Bookings" row */
+    color: #666; /* Slightly lighter grey for the text */
+}
+
+/* Make Booking Popup */
+.popup-overlay {
+    display: none;  /* Ensures overlay is not visible by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5); 
+    z-index: 1000; 
+}
+
+.popup {
+    display: none; /* Hidden by default, shown by JavaScript */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    max-width: 600px; /* Limiting the width */
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1010; /* Above the overlay */
+}
+
+/* Manage Bookings Button */
+.section .manage-bookings-button {
+    display: block;
+    width: auto;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #3457D5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.section .manage-bookings-button:hover {
+    background-color: #2a47b5;
+}
+
+/* Manage Booking Popup Overlay */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000; /* High enough to ensure it covers other content */
+}
+
+/* Manage Booking Popup Styles */
+#manage-bookings-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    width: 600px; /* Fixed width */
+    max-height: 50vh; /* Maximum height based on viewport */
+    overflow-y: auto; /* Allows scrolling */
+    z-index: 1010; /* Above the overlay */
+    box-sizing: border-box;
+}
+
+#manage-bookings-popup h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+/* Styling for Popup Content */
+#manage-bookings-popup h3, #manage-bookings-popup label, #manage-bookings-popup input, #manage-bookings-popup button {
+    margin: 10px 0; /* Adds vertical spacing between elements */
+    width: 100%;
+}
+
+#manage-bookings-popup .form-group,
+#manage-bookings-popup label,
+#manage-bookings-popup input[type="text"],
+#manage-bookings-popup input[type="date"],
+#manage-bookings-popup select,
+#manage-bookings-popup .button-group,
+#manage-bookings-popup button {
+    /* Ensure these elements don't inherit or conflict with global styles */
+    all: revert;
+}
+
+#manage-bookings-popup .form-group {
+    margin-bottom: 15px;
+}
+
+#manage-bookings-popup label {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+}
+
+#manage-bookings-popup input[type="text"],
+#manage-bookings-popup input[type="date"],
+#manage-bookings-popup select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#manage-bookings-popup .button-group {
+    display: none;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+#manage-bookings-popup button {
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 48%;
+    background-color: #3457D5;
+    color: white;
+}
+
+#manage-bookings-popup button:hover {
+    background-color: #E8E8E8; /* Lighter color on hover */
+}
+
+.popup .popup-close:hover,
+#manage-bookings-popup .popup-close:hover {
+    color: #E8E8E8; /* Grey color on hover */
+}
+
+/* Pop-up Styles */
+.popup {
+    display: none; /* Ensures that popups are not visible by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    width: calc(100% - 40px); /* Responsive width */
+    max-width: 600px; /* Consistent with the manage bookings popup */
+    box-sizing: border-box;
+    z-index: 1010; /* Above the overlay */
+}
+
+/* Cross Button */
+.popup .popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: #333;
+    font-size: 24px;
+    z-index:1020;
+}
+
+#manage-bookings-popup .popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    color: #333;
+    cursor: pointer;
+    background: none;
+    border: none;
+    z-index: 1100; /* Ensure it's above all other popup content */
+}
+
+/* Cross Button Hover Effect */
+.popup .popup-close:hover {
+    color: #E8E8E8; /* Grey color on hover */
+}
+
+#manage-bookings-popup .popup-close:hover {
+    color: #E8E8E8; /* Grey color on hover */
+}
+
+/* Registration Page Styles */
+.registration-container {
+    width: 300px; /* Fixed width for registration container */
+    margin: 100px auto; /* Center vertically and horizontally */
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9); /* Match opacity with login page */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0,0,0,0.2); /* Slightly stronger shadow */
+    box-sizing: border-box; /* Ensure padding doesn't exceed container width */
+}
+
+/* General styles for the form container */
+.form-container {
+    display: flex;
+    flex-direction: column; /* Stack form elements vertically */
+    width: 100%; /* Full width of the container */
+}
+
+/* Form groups for spacing */
+.form-group {
+    margin-bottom: 15px; /* Space between form groups */
+}
+
+/* Input fields styling */
+.form-control {
+    width: 100%; /* Full width for form controls */
+    padding: 10px; /* Padding inside the input fields */
+    margin: 8px 0; /* Space between input fields */
+    border: 1px solid #ccc; /* Light grey border for controls */
+    border-radius: 4px; /* Rounded corners */
+    box-sizing: border-box; /* Ensure padding does not exceed width */
+}
+
+/* Button styling */
+.btn-primary {
+    padding: 10px;
+    background-color: #3457D5; /* Dark blue background for button */
+    border: none;
+    color: #fff; /* White text for button */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Cursor pointer for button */
+    width: 100%; /* Ensure button fits within the container */
+}
+
+.btn-primary:hover {
+    background-color: #E8E8E8; /*Grey on hover */
+}
+
+/* Alert styling */
+.alert {
+    color: #a94442; /* Dark red color for alert text */
+    background-color: #f2dede; /* Light red background for alert */
+    border: 1px solid #ebccd1; /* Light red border for alert */
+    padding: 10px;
+    border-radius: 4px; /* Rounded corners for alert */
+}
+
+/* Form page transitions */
+.form-page {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+/* Show the active form */
+.form-page.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Hide inactive form */
+.form-page.inactive {
+    opacity: 0;
+    transform: translateX(-100%);
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Cleaning Service</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Home Cleaning Service</h1>
+        <form method="POST" action="{{ url_for('login') }}">
+            <input type="text" id="username" name="username" required placeholder="Username">
+            <input type="password" id="password" name="password" required placeholder="Password">
+            <button type="submit">Log In</button>
+        </form>
+        <div class="links">
+            <a href="{{ url_for('forgot_password') }}" class="forgot-password">Forgot Password?</a>
+            <a href="{{ url_for('register') }}">Create New Account</a>
+        </div>
+    </div>
+</body>
+</html>
