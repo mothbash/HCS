@@ -338,7 +338,7 @@ button.cancel:hover {
     margin-left: 20px; /* Centers the table within the section */
     margin-right: 20px; /* Centers the table within the section */
     overflow: visible; /* Change this if it's set to hidden or auto and clipping the button */
-    padding-bottom: 40px; /* Ensure there's enough space at the bottom for the button */
+    padding-bottom: 20px; /* Ensure there's enough space at the bottom for the button */
 }
 
 /* My Bookings Table */
@@ -347,9 +347,11 @@ button.cancel:hover {
     border-collapse: collapse; /* Ensure borders are collapsed */
     margin: 20px 0; /* Add margin between tables */
     font-size: 1rem; /* Adjust font size to ensure readability */
-    table-layout: fixed; /* Helps enforce column sizing */
+    table-layout: fixed; /* Fixed table layout to avoid resizing */
+    max-width: 100%; /* Ensure the table doesn't stretch beyond its container */
     margin-left: auto; /* Centers the table within the section */
     margin-right: auto; /* Centers the table within the section */
+    padding-bottom: 20px;
 }
 
 .section th, .section td {
@@ -378,18 +380,16 @@ button.cancel:hover {
 
 /* Make Booking Button */
 .section .make-booking-button {
-    display: block;
-    width: 100%;
-    max-width: 250px; /* Adjust this value as needed */
-    margin: 20px auto; /* Center the button and add margin */
+    display: inline-block; /* Adjust width based on content */
+    padding: 10px 20px; /* Increase horizontal padding for more space around the text */
     background-color: #3457D5; /* Same Byzantine Blue color */
     color: white;
-    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
     text-align: center;
+    margin: 20px auto; /* Center the button */
 }
 
 .section .make-booking-button:hover {
@@ -400,6 +400,34 @@ button.cancel:hover {
 .no-bookings td {
     text-align: center; /* Center the text in the "No Bookings" row */
     color: #666; /* Slightly lighter grey for the text */
+}
+
+/* Make Booking Popup Overlay */
+#make-bookings-overlay {
+    display: none;  /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);  /* Same black overlay effect */
+    z-index: 1000;  /* Ensure it appears above other elements */
+}
+
+/* Make Booking Popup */
+#booking-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    width: 80%;
+    max-width: 800px;
+    box-sizing: border-box;
+    z-index: 1010;  /* Above the overlay */
 }
 
 /* Make Booking Popup */
@@ -415,25 +443,28 @@ button.cancel:hover {
 }
 
 .popup {
-    display: none; /* Hidden by default, shown by JavaScript */
-    position: fixed;
+    display: none;
+    position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: auto;
-    max-width: 600px; /* Limiting the width */
+    background-color: white;
+    border: 1px solid #ccc;
     padding: 20px;
-    background: white;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    z-index: 1010; /* Above the overlay */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    width: 80%;
+    max-width: 800px;
+    box-sizing: border-box;
+    z-index: 1010;
+    position: relative;
 }
 
 /* Manage Bookings Button */
 .section .manage-bookings-button {
     display: block;
     width: auto;
-    margin: 20px auto;
+    margin: 5px auto;
     padding: 10px 20px;
     background-color: #3457D5;
     color: white;
@@ -452,19 +483,18 @@ button.cancel:hover {
 
 /* Manage Booking Popup Overlay */
 .popup-overlay {
-    display: none;
+    display: block;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.5);
-    z-index: 1000; /* High enough to ensure it covers other content */
+    z-index: 1050; /* High enough to ensure it covers other content */
 }
 
 /* Manage Booking Popup Styles */
 #manage-bookings-popup {
-    display: none;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -473,11 +503,54 @@ button.cancel:hover {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    width: 600px; /* Fixed width */
-    max-height: 50vh; /* Maximum height based on viewport */
-    overflow-y: auto; /* Allows scrolling */
-    z-index: 1010; /* Above the overlay */
+    width: 80%; 
+    max-width: 800px;
+    height: auto;
+    max-height: 80vh; /* Allow up to 80% of the viewport height */
+    overflow-y: auto;
+    z-index: 9999;
     box-sizing: border-box;
+    padding-bottom: 40px;
+}
+
+/* Table inside Manage Bookings Popup */
+#manage-bookings-popup table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1rem; /* Match font size */
+    table-layout: fixed;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#manage-bookings-popup th, #manage-bookings-popup td {
+    text-align: center;
+    padding: 15px;
+    border: 1px solid #ccc; /* Light grey border around cells */
+}
+
+#manage-bookings-popup th {
+    background-color: #f2f2f2; /* Light grey background */
+    color: #333; /* Darker text for contrast */
+}
+
+#manage-bookings-popup td {
+    background-color: #fff; /* White background */
+    color: #333;
+}
+
+/* Consistent width for Date & Plan columns */
+#manage-bookings-popup th:nth-child(1), 
+#manage-bookings-popup td:nth-child(1),
+#manage-bookings-popup th:nth-child(2),
+#manage-bookings-popup td:nth-child(2) {
+    width: 30%;
+}
+
+#manage-bookings-popup th:nth-child(3), 
+#manage-bookings-popup td:nth-child(3) {
+    width: 40%;
 }
 
 #manage-bookings-popup h3 {
@@ -526,7 +599,7 @@ button.cancel:hover {
 }
 
 #manage-bookings-popup .button-group {
-    display: none;
+    display: flex;
     justify-content: space-between;
     margin-top: 20px;
 }
@@ -546,59 +619,113 @@ button.cancel:hover {
 
 .popup .popup-close:hover,
 #manage-bookings-popup .popup-close:hover {
-    color: #E8E8E8; /* Grey color on hover */
+    color: #E8E8E8;  /* Change only the color of the cross on hover */
+    background: none;  /* No background change */
+    border: none;  /* No border */
+    box-shadow: none;  /* No shadow effect */
 }
 
 /* Pop-up Styles */
-.popup {
-    display: none; /* Ensures that popups are not visible by default */
+.popup-overlay {
+    display: none;  /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5); /* Transparent black background */
+    z-index: 1000;
+}
+
+/* Cross Button for Make and Manage Bookings Popups */
+.popup .popup-close, 
+#manage-bookings-popup .popup-close {
+    position: absolute;
+    top: 10px;  /* Align the button to the top */
+    right: 10px;  /* Align the button to the right */
+    cursor: pointer;
+    border: none;  /* No border */
+    background: none;  /* No background */
+    color: #333;  /* Default color for the cross */
+    font-size: 24px;  /* Size for the cross */
+    padding: 0;  /* Remove padding */
+    margin: 0;  /* Remove margin */
+    z-index: 1020;  /* Ensure it is above other elements */
+}
+
+/* Font size for Manage Bookings close button to make it consistent */
+#manage-bookings-popup .popup-close {
+    font-size: 24px; /* Align the size of the cross with Make Booking */
+}
+/* Edit Booking Popup Overlay */
+#edit-booking-overlay {
+    display: none;  /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+    z-index: 1050; /* Ensure the overlay is above other content */
+}
+
+/* Edit Booking Popup */
+#edit-booking-popup {
+    display: none;  /* Hidden by default */
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
-    border: 1px solid #ccc;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
-    width: calc(100% - 40px); /* Responsive width */
-    max-width: 600px; /* Consistent with the manage bookings popup */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    width: 80%;
+    max-width: 800px;
     box-sizing: border-box;
-    z-index: 1010; /* Above the overlay */
+    z-index: 1100; /* Make sure it's above the overlay and other content */
 }
 
-/* Cross Button */
-.popup .popup-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    border: none;
-    background: none;
-    color: #333;
-    font-size: 24px;
-    z-index:1020;
-}
-
-#manage-bookings-popup .popup-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+/* Edit Booking Popup Header */
+#edit-booking-popup h3 {
     font-size: 1.5rem;
+    margin-bottom: 20px;
     color: #333;
-    cursor: pointer;
-    background: none;
+    text-align: center;
+}
+
+/* Popup input and select styling */
+#edit-booking-popup input, #edit-booking-popup select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+/* Save Booking Button */
+#save-booking-btn {
+    padding: 10px;
+    width: 100%;
+    background-color: #3457D5;
+    color: white;
     border: none;
-    z-index: 1100; /* Ensure it's above all other popup content */
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#save-booking-btn:hover {
+    background-color: #2a47b5;
 }
 
 /* Cross Button Hover Effect */
-.popup .popup-close:hover {
-    color: #E8E8E8; /* Grey color on hover */
-}
-
-#manage-bookings-popup .popup-close:hover {
-    color: #E8E8E8; /* Grey color on hover */
+.popup .popup-close:hover,
+#edit-booking-popup .popup-close:hover {
+    color: #E8E8E8; /* Change color on hover */
+    background: none; /* No background on hover */
+    border: none; /* No border on hover */
+    box-shadow: none; /* No shadow effect on hover */
 }
 
 /* Registration Page Styles */

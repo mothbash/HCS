@@ -2,16 +2,21 @@
 <html>
 <head>
     <title>Dashboard</title>
+    <!-- Link to the external stylesheet -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+    <!-- Header Section: Contains the greeting, clock, and logout link -->
     <div class="header">
         <div class="user-greeting">Hello, {{ current_user.username }}</div>
         <div class="clock" id="clock">Clock</div>
         <a href="/logout" class="logout">Log Out</a>
     </div>
- 
+
+    <!-- Content Section -->
     <div class="content">
+        
+        <!-- My Bookings Section -->
         <div class="section">
             <h2>My Bookings</h2>
             <table>
@@ -36,13 +41,21 @@
                     {% endif %}
                 </tbody>
             </table>
+            <!-- Manage Bookings button -->
             <button class="manage-bookings-button" onclick="showManageBookingsPopup()">Manage Bookings</button>
         </div>
-        <div class="section">
-            <h2>Make Booking</h2>
-            <button onclick="showPopup()">Make Booking</button>
+
+    <!-- Make a Booking Section -->
+    <div class="section">
+        <h2>Make Booking</h2>
+        <!-- Button to trigger Make Booking popup -->
+        <button class="button-common" onclick="showPopup()">Make Booking</button>
+        <!-- Make Booking Popup Overlay -->
+        <div class="popup-overlay" id="make-bookings-overlay" style="display: none;">
             <div class="popup" id="booking-popup">
+                <!-- Close button for Make Booking popup -->
                 <button onclick="hidePopup()" class="popup-close">X</button>
+                <!-- Booking Form -->
                 <p>Select a Date:</p>
                 <input type="date" id="booking-date">
                 <p>Select a Plan:</p>
@@ -51,13 +64,18 @@
                     <option value="200">$200</option>
                     <option value="300">$300</option>
                 </select>
-                <button onclick="makeBooking()">Confirm Booking</button>
+                <!-- Confirm Booking button -->
+                <button class="button-common" onclick="makeBooking()">Confirm Booking</button>
             </div>
         </div>
     </div>
-    <div id="manage-bookings-popup" class="popup-overlay">
-        <div class="popup">
+
+    <!-- Manage Bookings Popup Section -->
+    <div class="popup-overlay" id="manage-bookings-overlay">
+        <div class="popup" id="manage-bookings-popup">
+            <!-- Close button for Manage Bookings popup -->
             <button class="popup-close" onclick="hideManageBookingsPopup()">X</button>
+            <!-- Manage Bookings Title -->
             <h3>Manage Bookings</h3>
             <table>
                 <thead>
@@ -68,20 +86,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Dynamically generated rows will go here -->
                     {% if bookings %}
                         {% for booking in bookings %}
                             <tr>
                                 <td>{{ booking.date }}</td>
                                 <td>{{ booking.plan }}</td>
                                 <td>
-                                    <button onclick="editBooking({{ booking.id }})">Edit</button>
-                                    <button onclick="deleteBooking({{ booking.id }})">Delete</button>
+                                    <button onclick="editBooking(this)">Edit</button>
+                                    <button onclick="deleteBooking(this)">Delete</button>
                                 </td>
                             </tr>
                         {% endfor %}
                     {% else %}
-                        <tr>
+                        <tr class="no-bookings">
                             <td colspan="3">No bookings made yet.</td>
                         </tr>
                     {% endif %}
@@ -89,6 +106,28 @@
             </table>
         </div>
     </div>
+
+    <!-- Edit Booking Popup Section -->
+    <div class="popup-overlay" id="edit-booking-overlay" style="display:none;">
+        <div class="popup" id="edit-booking-popup">
+            <!-- Close button for Edit Booking popup -->
+            <button class="popup-close" onclick="document.getElementById('edit-booking-popup').style.display='none';">X</button>
+            <!-- Edit Booking Title -->
+            <h3>Edit Booking</h3>
+            <p>Edit Date:</p>
+            <input type="date" id="edit-booking-date">
+            <p>Edit Plan:</p>
+            <select id="edit-booking-plan">
+                <option value="100">$100</option>
+                <option value="200">$200</option>
+                <option value="300">$300</option>
+            </select>
+            <!-- Save Booking button -->
+            <button id="save-booking-btn">Save Booking</button>
+        </div>
+    </div>
+
+    <!-- Link to the external JavaScript file -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
